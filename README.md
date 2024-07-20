@@ -6,9 +6,9 @@
 ### Interrupt Functions
 
   * These type of functions are subclass of callback functions. These functions are called when the value of assigned variable changes. For example, In this code ` attachInterrupt(digitalPinToInterrupt(encA[0]),callback_0,RISING); ` whenever the encA[0] risess from 0 to 1, the attached interrupt function ` callback_0 ` is called.
-  * The digitalPinToInterrupt() function  returns the pin number if it can be used as an interrupt.
-  * The ` attachInterrupt ` can take 3 inputs : pin to be setted
+  ** The digitalPinToInterrupt() function  returns the pin number if it can be used as an interrupt.
+  ** The ` attachInterrupt ` can take 3 inputs : pin to be setted
                                            ` Interrupt Service Routine ` : These functions won't take any input and does not return anything, but runs whenever there is change in value .
                                            ` Mode ` : RISING,FALLING or CHANGE , this tells when the ISR functions to be called
-  * In total there are '7 callback functions for each encoder, Named from ` callback_0 ` to ` callback_6 `
+  ** In total there are '7 callback functions for each encoder, Named from ` callback_0 ` to ` callback_6 `
  
