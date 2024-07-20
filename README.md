@@ -19,6 +19,6 @@
      * Our, seniors used a clever idea to find the direction of motion of encoders. They only considered at the time of ` Rising edge ` of one channel (here it is channel A) . At that time if we compare both the channels, then there can be two possibilities .
        *  If both the values are same then it is moving in ` anti_clockwise ` and we are incrementing the enc_pos .
        *  If both the values are not equal then it is moving in ` clockwise ` and we are derementing the enc_pos
-![Diagram](Quadrature_encoders)
-![Channels](Channels)
+![Diagram](Quadrature_encoders.jpg)
+![Channels](Channels.jpg)
 
