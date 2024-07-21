@@ -1,4 +1,57 @@
 # drive_galileo
+
+## Control Flow Summary
+
+This code is for a robot control system using ROS (Robot Operating System) to interface with an Arduino. The system controls motors and reads encoder values to monitor motor positions. Here's a summarized version of the control flow:
+
+### Initialization
+1. **Include Libraries:**
+   - `ros.h`, `std_msgs/Float32MultiArray.h`, `std_msgs/Int32MultiArray.h`.
+
+2. **Define Constants and Variables:**
+   - Pins for PWM and direction control (`PWMpin` and `dirpin` arrays).
+   - Default motor directions (`defaultdir` array).
+   - Node handle for ROS (`nh`).
+   - Buffers for motor commands (`drive_buf` array) and encoder feedback (`enc_feed` array).
+
+3. **ROS Message and Subscriber/Publisher Setup:**
+   - Define ROS messages and topics for motor commands and encoder feedback.
+   - Subscribe to motor command topic and publish encoder feedback.
+
+### Setup Function
+1. **Pin Initialization:**
+   - Set encoder pins (`encA` and `encB` arrays) as inputs with pull-up resistors.
+   - Set PWM and direction pins as outputs.
+
+2. **Attach Interrupts:**
+   - Attach interrupts to encoder pins to call corresponding callback functions.
+
+3. **Initialize ROS Node:**
+   - Set baud rate and initialize the ROS node.
+   - Advertise the encoder feedback topic and subscribe to the motor command topic.
+
+### Loop Function
+1. **Spin ROS Node:**
+   - Call `nh.spinOnce()` to handle ROS communication.
+
+2. **Motor Control:**
+   - Iterate through `drive_buf` to control motor PWM and direction based on received commands.
+
+3. **Update Encoder Feedback:**
+   - Calculate encoder positions in degrees and store in `enc_feed` array.
+   - Publish encoder feedback to the ROS topic.
+
+4. **Delay:**
+   - Add a short delay to control the update rate.
+
+### Callback Functions
+- **Motor Command Callback:**
+  - Update `drive_buf` with received motor commands.
+
+- **Encoder Interrupt Callbacks:**
+  - Update encoder positions based on the state of encoder pins.
+
+
 ## Functions Used
 ### Callback Functions 
 * messageCb
